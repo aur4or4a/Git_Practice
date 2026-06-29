@@ -1,0 +1,27 @@
+yay -S stgit
+'stg refresh --index' will note the chnages made in the index.
+'stg new <name>' Will name chnages observed with the recent index refresh.
+'stg applied' list all the patches -changes- appllied.
+'stg pop patch1' will remove patch1 from recent index.
+'stg push patch1' will add patch1 to recnt index.
+
+Example:
+#made some chnages in HEAD.
+$ stg new patch1
+$ git add -i
+$ stg refresh --index
+$ stg new patch2
+$ git add -i
+$ stg refresh --index
+
+$ stg applied
+patch1
+patch2
+<... do tests using both patches ...>
+$ stg pop patch1
+<... do tests using only patch2 ...>
+$ stg pop patch2
+$ stg push patch1
+<... do tests using only patch1 ...>
+$ stg push -a
+$ stg commit -a  # commit all the patches
