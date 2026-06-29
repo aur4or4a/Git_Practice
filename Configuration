@@ -1,6 +1,5 @@
-SSH and GPG keys:
-git config --global user.signingkey YOUR_GPG_KEY_ID
-git config --global user.signingkey ~/.ssh/your_ssh_key.pub
-git config --global gpg.format ssh
+SSH and GPG keys:(use all commands for ssh)
+git config --global user.signingkey YOUR_GPG_KEY_ID(must be a sting like FF2DF70EB208A53A52D77140EF585FDD26A0DD75)
+git config --global user.signingkey ~/.ssh/your_ssh_key.pub(ony for ssh)
+git config --global gpg.format ssh(only for ssh)
 git config --global commit.gpgsign true
-

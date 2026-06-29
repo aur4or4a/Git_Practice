@@ -15,3 +15,25 @@ git commit -m 'bla' = git update-ref refs/heads/master $(echo 'bla' | git commit
 -S for commit-tree and commit will sign the commit cryptographically!
 git log --show-signature to verify signature.
 git config user.signingkey to verify the signing key, it should be a keyid string(all caps): FF2DF70EB208A53A52D77140EF585FDD26A0DD75
+'git reflog expire --expire-unreachable=now --all; git gc --prune=now' to deleate dangling trees
+`````
+                    ┌─ W ── X ── Y ── Z   [Branch Z]
+                    │
+  A (Common Root) ──┤
+  [D~3]             │
+                    └─ B ── C ── D* [Branch D (HEAD)]
+                      [D~2] [D^] [D]
+$ git show-branch
+! [Z] Z
+* [D] D
+--
+* [D] D
+* [D^] C
+* [D~2] B
++ [Z] Z
++ [Z^] Y
++ [Z~2] X
++ [Z~3] W
++* [D~3] A
+``````
+
