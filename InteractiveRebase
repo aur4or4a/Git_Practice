@@ -1,0 +1,30 @@
+pick
+This is the default behavior chosen for every commit in the branch if you
+don’t use interactive mode. It means that the commit in question should
+be applied to its (now rewritten) parent commit. For every commit that
+involves conflicts, the rebase command gives you an opportunity to re-
+solve them.
+
+squash
+A squashed commit will have its contents “folded” into the contents of the
+commit preceding it. This can be done any number of times. If you took
+the example branch above and squashed all of its commits (except the first,
+which must be a pick in order to squash), you would end up with a new Z
+branch containing only one commit on top of D. Useful if you have
+changes spread over multiple commits, but you’d like the history rewritten
+to show them all as a single commit.
+
+edit
+If you mark a commit as edit, the rebasing process will stop at that commit
+and leave you at the shell with the current working tree set to reflect that
+commit. The index will have all the commit’s changes registered for inclu-
+sion when you run commit. You can thus make whatever changes you like:
+amend a change, undo a change, etc.; and after committing, and running
+rebase --continue, the commit will be rewritten as if those changes had
+been made originally.
+
+(drop)	
+If you remove a commit from the interactive rebase file, or if you comment
+it out, the commit will simply disappear as if it had never been checked in.
+Note that this can cause merge conflicts if any of the later commits in the
+branch depended on those changes.
