@@ -1,0 +1,17 @@
+Every Commit Holds a Single Tree in Git
+Blobs are files without metadata, Trees are Directories that hold blobs or trees
+Staged(kinda like performance stage) work is the un saved worn
+git commit -m "bla" ~= nn=$(echo "bla" | git commit-tree $(git write-tree))
+echo $nn > .git/refs/heads/master(dangereous) use  'git update-ref .git/refs/head/master $nn' insted, this will register this commit as the head of the branch 'master' and this tracks the most recent commit made to 'master' branch.
+1st commit dont have parent commit.
+git symbolic-ref HEAD refs/heads/master, but for some reason i forgot this and it worked just fine.
+git branch shows all available braches and commits that are dont have cildren and not a branch(named) while git show-brach=git log --all --oneline --graph shows all the commits available.
+git checkout <commit hash> moves HEAD to that hash, git log shows the past(all the ansistors in an order) of the present commit, There are a lot of sorting and searching u can do which im not intrested in for now.
+I donot understand git merge and git rebase properly i guess. Ill look into it later.
+git replace --graft <TARGET_COMMIT_HASH> <EXISTING_PARENT_HASH> <ADDITIONAL_PARENT_HASH> to chnage parent of a commit.
+git reset --hard HEAD~1 is set to deleate the present HEAD, idk how true, there is also a --soft option which idk how to use for now.
+git status shows all the chnages made with respect to HEAD.
+git commit -m 'bla' = git update-ref refs/heads/master $(echo 'bla' | git commit-tree -p HEAD $(git write-tree))
+-S for commit-tree and commit will sign the commit cryptographically!
+git log --show-signature to verify signature.
+git config user.signingkey to verify the signing key, it should be a keyid string(all caps): FF2DF70EB208A53A52D77140EF585FDD26A0DD75
