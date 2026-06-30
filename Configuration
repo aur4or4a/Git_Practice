@@ -3,3 +3,5 @@ git config --global user.signingkey YOUR_GPG_KEY_ID(must be a sting like FF2DF70
 git config --global user.signingkey ~/.ssh/your_ssh_key.pub(ony for ssh)
 git config --global gpg.format ssh(only for ssh)
 git config --global commit.gpgsign true
+
+Had to generate ssh keys for this using ssh-keygen

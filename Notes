@@ -36,4 +36,7 @@ $ git show-branch
 + [Z~3] W
 +* [D~3] A
 ``````
-
+Reflog is like a trash bin that stores deleted objects for 30 days for kinda fail-safe. Can be viewed with 'git reflog' jsut like git log
+'git stash' stashes ur chnages to the stash so u can call it a day and restart tommorrow without making a useless commit. git stash will stash away the current working tree and the index. U do 'git stash list' 'git reflog show stash' and 'git stash apply' the next day. But if u wrote somewhere that u stashed the changes, then technically u made changes and must revert the changes with 'git reset --hard HEAD' before being able to apply 'git stash apply' unless ur really good at jsut reverting the changes urself.
+The stash is technically stored as a commit but not perminatly.
+'git stash clear' will clear the stash.
